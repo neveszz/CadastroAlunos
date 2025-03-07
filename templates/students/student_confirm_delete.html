@@ -1,0 +1,19 @@
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-6">Confirmar Exclusão</h2>
+        
+        <p class="mb-4">Você tem certeza que deseja excluir o aluno "{{ student.name }}"?</p>
+        
+        <form method="post" class="flex justify-end space-x-3">
+            {% csrf_token %}
+            <a href="{% url 'student_list' %}" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+                Cancelar
+            </a>
+            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                Confirmar Exclusão
+            </button>
+        </form>
+    </div>
+    {% endblock %}
